@@ -21,15 +21,19 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:true
     },
+    landmark: {
+        type: String,
+        required: true
+    },
     city: {
         type: String,
-        required:true
+        required:true 
     },
     pin: {
         type: Number,
         required:true
     },
-
+    
 })
 
 //model 
