@@ -28,4 +28,4 @@ app.get("/test", check, (req, res) =>{
 //port 
 app.listen(PORT,()=>{
     console.log(`Server is running on http://localhost:${PORT}`);
-})
+});
