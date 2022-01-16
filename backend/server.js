@@ -1,5 +1,4 @@
 const express = require('express');
-
 const dotenv = require("dotenv");
 dotenv.config({path: "./key.env"});
 //db 
@@ -12,17 +11,13 @@ const register = require('./models/register');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+
 //Middle ware
-const check = (req, res, next)=> {
-    console.log(`Hello from MiddleWare`);
-    next();
-}
+app.use(express.json());
+app.use(require('./router/auth'));
 
-app.get("/",(req, res) =>{
-    res.send("Hello World");
-});
 
-app.get("/test", check, (req, res) =>{
+app.get("/test",(req, res) =>{
     res.send("test page");
 });
 //port 
