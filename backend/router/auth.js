@@ -8,27 +8,32 @@ router.get('/',(req,res) => {
     res.send(`Hello world from router.js`);
 });
 
-router.post('/register',(req,res)=>{
+//creating a new user 
+router.post('/register', async(req,res)=>{
 
     const { name, email, password, cpassword} = req.body;
 
     if(!name || !email || !password || !cpassword){
-        return res.sendStatus(422).json({Error:"Please fill every field!"}); 
+        return res.status(422).json({Error:"Please fill every field!"}); 
     }
 
-    Register.findOne({email: email})
-    .then((userExist) => {
-        if(userExist) {
-            return res.sendStatus(422).json({error:"Email Already Exist"});
-        }
+    try {
+       const userExist = await Register.findOne({email: email})
+
+       if(userExist) {
+        return res.status(422).json({error:"Email Already Exist"});
+    }else if(password != cpassword){
+        return res.status(422).json({error:"Password does not match!"});
+    }else{
         const register = new Register({name, email, password, cpassword});
+        await register.save();
+        return res.status(201).json({message:"user registered Successfully"});
+        }
 
-        register.save().then(()=>{
-            res.sendStatus(201).json({message:"user registered Successfully"});
-        }).catch((err) => res.sendStatus(500).json({err:"failed to registered."}));
-    }).catch(err => {console.log(err);});
-
-    
+    }catch (err) {
+        console.log(err);
+    }
+  
 });
 
 module.exports = router;

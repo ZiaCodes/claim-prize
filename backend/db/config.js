@@ -4,7 +4,7 @@ const conDB = process.env.MONGODB_CONNECTION;
 
 mongoose.connect(conDB,{
     useNewUrlParser:true,
-    useUnifiedTopology:true
+    useUnifiedTopology:true,
 }).then( ()=>{
     console.log(`MongoDb is connected!`);
 }).catch((e)=>{
