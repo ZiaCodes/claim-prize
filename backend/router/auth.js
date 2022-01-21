@@ -52,15 +52,20 @@ router.post('/login', async(req,res) =>{
 
     try {
         const userEmail = await Register.findOne({email: email});
-        const userPassword = await Register.findOne({password:password});
-        if(userEmail && userPassword){
+
+        if(userEmail){
+
+            const isMatch = await bcrypt.compare(password, userEmail.password);
+
+        if(!isMatch){
+            return res.status(422).json({error:"Invalid password! please try again."});
+        }else{
             return res.status(200).json({message:"Login Successfully!"});
-        }else if(!userEmail){
-            return res.status(422).json({error:"This email is not registered!"});
-        }else if(!userEmail || !userPassword){
-            return res.status(422).json({error:"Invalide email and password Combinations"});
         }
-  
+        }else{
+            return res.status(422).json({error:"Invalid Email and Password Combination,Please try agin !"});
+        }
+
     } catch (err) {
         console.log(err);
     }
