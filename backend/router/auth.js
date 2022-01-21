@@ -10,6 +10,8 @@ router.get('/',(req,res) => {
     res.send(`Hello world from router.js`);
 });
 
+
+
 //creating a new user 
 router.post('/register', async(req,res)=>{
 
@@ -45,7 +47,7 @@ router.post('/register', async(req,res)=>{
 
 //User login authentication 
 
-router.post('/login', async(req,res) =>{
+router.post('/signin', async(req,res) =>{
     const { email, password} = req.body;
     if(!email || !password){
          return res.status(400).json({Error:"Please enter email & password !"});
@@ -60,6 +62,10 @@ router.post('/login', async(req,res) =>{
 
             const token = await userEmail.generateAuthToken();
             console.log(token);
+            res.cookie("Jwtoken", token,{
+                expires: new Date(Date.now() + 25892000000),
+                httpOnly: true
+            })
 
         if(!isMatch){
             return res.status(422).json({error:"Invalid password! please try again."});
