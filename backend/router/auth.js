@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
 require('../db/config');
 
 const Register = require('../models/register');
@@ -56,6 +57,9 @@ router.post('/login', async(req,res) =>{
         if(userEmail){
 
             const isMatch = await bcrypt.compare(password, userEmail.password);
+
+            const token = await userEmail.generateAuthToken();
+            console.log(token);
 
         if(!isMatch){
             return res.status(422).json({error:"Invalid password! please try again."});
