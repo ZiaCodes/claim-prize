@@ -4,9 +4,9 @@ import Navbar from './nav';
 const about = () => {
   return <>
     < Navbar />
-    <div>
-      <p>This Where User Information willl show up</p>
-    </div>
+    <div className='flex justify-center items-center py-36'>
+      <p className='text-3xl'>User Deatils page</p>
+      </div>
     </>;
 };
 

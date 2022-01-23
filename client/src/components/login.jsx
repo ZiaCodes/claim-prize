@@ -5,8 +5,8 @@ const login = () => {
   return <>
     <Navbar />
     
-      <div>
-      <p>This is a Login page</p>
+      <div className='flex justify-center items-center py-36'>
+      <p className='text-3xl'>This is a Login page</p>
       </div>
 
     </>;
