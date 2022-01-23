@@ -111,11 +111,11 @@ You need to install NODEJS, a JavaScript run time enivroment outside the browser
   cd client
   ```
   
-    ```sh
+   ```sh
   npm i
   ```
   
-    ```sh
+   ```sh
   npm start
   ```
   
