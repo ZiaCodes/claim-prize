@@ -18,6 +18,9 @@ const nav = () => {
                   <li className='font-bold px-5 my-6 text-xl hover:text-gray-500 cursor-pointer'>
                   <Link to='/login'>Login</Link>
                   </li>
+                  <li className='font-bold px-5 my-6 text-xl hover:text-gray-500 cursor-pointer'>
+                  <Link to='/register'>Register</Link>
+                  </li>
               </ul>
           </div>
       </div>
