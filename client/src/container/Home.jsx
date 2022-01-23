@@ -9,10 +9,10 @@ const Home = () => {
 
       <p className='my-2 mx-10 '>This is a demo page to guide you.
         You need to connect this react application to the Express 
-        server which is in the <strong> server folder</strong>.Go through 
+        server which is in the <strong> server folder </strong>.Go through 
         the folder structure to understand the projects.  </p>
 
-      <p className='my-2 mx-8 '>You also need to configure <strong> key.env</strong> 
+      <p className='my-2 mx-8 '>You also need to configure <strong> key.env </strong> 
       file to work it properly. you will find it in <strong>Server folder</strong> make sure to put your 
        <strong> MONGODB URL</strong> to connect with the mongoDB database as well as <strong> SECRET_KEY_JWT </strong> 
        for generating unique key everytime a user login... </p>
