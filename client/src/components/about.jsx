@@ -1,9 +1,13 @@
 import React from 'react';
+import Navbar from './nav';
 
 const about = () => {
-  return <div>
-      This is user about page
-  </div>;
+  return <>
+    < Navbar />
+    <div>
+      <p>This Where User Information willl show up</p>
+    </div>
+    </>;
 };
 
 export default about;
