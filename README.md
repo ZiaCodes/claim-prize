@@ -14,7 +14,7 @@
 <br />
 <p align="center">Participating in</p>
 <div align="center"><a href="https://jwoc.tech/">
-<img src="https://d33wubrfki0l68.cloudfront.net/710cb0d537d2e7fa6246445c0977ecc994f05f5a/6a3b4/assets/img/jwoc_logo.svg" alt="Banner" width="40%"/></a>
+<img src="https://d33wubrfki0l68.cloudfront.net/710cb0d537d2e7fa6246445c0977ecc994f05f5a/6a3b4/assets/img/jwoc_logo.svg" alt="Banner" width="20%"/></a>
 </div>
 
 <!-- PROJECT LOGO -->
