@@ -81,7 +81,7 @@ You should know the core concepts Javascript such as Functions, Event, asynchron
 
 - From git CLI
   ```sh
-  git clone https://github.com/gdscjgec/Image-Editor.git
+  git clone https://github.com/ZiaCodes/claim-prize.git
   ```
 
 ### Installation ⚙️
@@ -89,11 +89,13 @@ You should know the core concepts Javascript such as Functions, Event, asynchron
 You need to install NODEJS, a JavaScript run time enivroment outside the browser. Download from here :- https://nodejs.dev/
 
  ```sh
-  cd counter.js
+  cd Claim-prize
   ```
   
+  Start the server 
+  
   ```sh
-  npm i
+  cd server
   ```
   
   ```sh
@@ -104,7 +106,20 @@ You need to install NODEJS, a JavaScript run time enivroment outside the browser
   npm start
   ```
   
-  Visit http://localhost:5000 for demo
+  Now run the client 
+  ```sh
+  cd client
+  ```
+  
+    ```sh
+  npm i
+  ```
+  
+    ```sh
+  npm start
+  ```
+  
+Now you can start adding features . Good Luck
   
 
 <!-- USAGE EXAMPLES -->
