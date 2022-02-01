@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
+const {sendWelcomeEmail} = require('../emails/welcome');
 require('../db/config');
 
 const Register = require('../models/register');
@@ -30,7 +31,7 @@ router.post('/register', async(req,res)=>{
         return res.status(422).json({error:"Password does not match!"});
     }else{
         const register = new Register({name, email, password, cpassword});
-
+        sendWelcomeEmail(email,name);
         //hashing
         register.password =  await bcrypt.hash(register.password , 12);
         register.cpassword =  await bcrypt.hash(register.cpassword , 12);
