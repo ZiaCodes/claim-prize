@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(require('./router/auth'));
 
 
-app.get("/test",(req, res) =>{
+app.get("/test", (req, res) => {
     res.send("test page");
 });
 //port 
