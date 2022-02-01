@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
+const {sendWelcomeEmail} = require('../emails/welcome');
 const authorization = require('../middleware/authorization');
 require("../db/config");
+
 
 const Register = require("../models/register");
 const { generateResetToken } = require("../utils/generateResetToken");
@@ -23,16 +25,23 @@ router.post("/register", async (req, res) => {
     try {
         const userExist = await Register.findOne({ email: email });
 
-        if (userExist) {
-            return res.status(422).json({ error: "Email already Exist" });
-        } else if (password != cpassword) {
-            return res.status(422).json({ error: "Password does not match!" });
-        } else {
-            const register = new Register({ name, email, password, cpassword });
+       if(userExist) {
+        return res.status(422).json({error:"Email already Exist"});
+    }else if(password != cpassword){
+        return res.status(422).json({error:"Password does not match!"});
+    }else{
+        const register = new Register({name, email, password, cpassword});
+        sendWelcomeEmail(email,name);
+        //hashing
+        register.password =  await bcrypt.hash(register.password , 12);
+        register.cpassword =  await bcrypt.hash(register.cpassword , 12);
+
+       
 
             //hashing
             //   register.password = await bcrypt.hash(register.password, 12);
             //   register.cpassword = await bcrypt.hash(register.cpassword, 12);
+
 
             await register.save();
             return res.status(201).json({ message: "User registered Successfully" });
