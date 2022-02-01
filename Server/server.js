@@ -3,7 +3,8 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./key.env" });
 //db 
 require('./db/config');
-
+// working with cookies
+const cookieParser = require("cookie-parser");
 //schema 
 const form = require('./models/form');
 const register = require('./models/register');
@@ -14,6 +15,8 @@ const app = express();
 
 //Middle ware
 app.use(express.json());
+app.use(cookieParser());
+
 app.use(require('./router/auth'));
 
 
