@@ -60,16 +60,18 @@ router.post('/signin', async(req,res) =>{
 
             const isMatch = await bcrypt.compare(password, userEmail.password);
 
+        if(!isMatch){
+
+            return res.status(422).json({error:"Invalid password! please try again."});
+        }else{
+
             const token = await userEmail.generateAuthToken();
             console.log(token);
             res.cookie("Jwtoken", token,{
                 expires: new Date(Date.now() + 25892000000),
                 httpOnly: true
-            })
-
-        if(!isMatch){
-            return res.status(422).json({error:"Invalid password! please try again."});
-        }else{
+            });
+            
             return res.status(200).json({message:"Login Successfully!"});
         }
         }else{
