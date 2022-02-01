@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require("dotenv");
-dotenv.config({path: "./key.env"});
+dotenv.config({ path: "./key.env" });
 //db 
 require('./db/config');
 
@@ -17,10 +17,10 @@ app.use(express.json());
 app.use(require('./router/auth'));
 
 
-app.get("/test",(req, res) =>{
+app.get("/test", (req, res) => {
     res.send("test page");
 });
 //port 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
