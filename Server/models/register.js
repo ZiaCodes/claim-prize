@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+    trim:true
   },
   cpassword: {
     type: String,
@@ -67,8 +68,8 @@ userSchema.pre("save", async function (next) {
     user.forgetPassword.validTill = date;
   }
 
-  if (user.isModified("password")) {
-    const hash = bcrypt.hashSync(user.password, 10);
+  if (!user.isModified("password")) {
+    const hash = bcrypt.hashSync(user.password, 12);
     user.password = hash;
   }
 

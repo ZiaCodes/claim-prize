@@ -32,9 +32,10 @@ router.post("/register", async (req, res) => {
     }else{
         const register = new Register({name, email, password, cpassword});
         sendWelcomeEmail(email,name);
+
         //hashing
-        register.password =  await bcrypt.hash(register.password , 12);
-        register.cpassword =  await bcrypt.hash(register.cpassword , 12);
+        register.password =  bcrypt.hashSync(register.password , 12);
+        register.cpassword = bcrypt.hashSync(register.cpassword , 12);
 
        
 
@@ -63,10 +64,11 @@ router.post("/signin", async (req, res) => {
         const userEmail = await Register.findOne({ email: email });
 
         if (userEmail) {
-            const isMatch = await bcrypt.compare(password, userEmail.password);
+            console.log(userEmail)
+            const isMatch = bcrypt.compareSync(password, userEmail.password);
 
         if(!isMatch){
-
+            
             return res.status(422).json({error:"Invalid password! please try again."});
         }else{
 
@@ -109,7 +111,7 @@ router.post("/forgetPassword", async (req, res) => {
 
     await user.save();
 
-    const resetLink = `http://localhost:5000/resetPassword/${user.id}/${resetToken}`;
+    const resetLink = `http://localhost:${process.env.PORT}/resetPassword/${user.id}/${resetToken}`;
 
     return res.send(resetLink);
 });
