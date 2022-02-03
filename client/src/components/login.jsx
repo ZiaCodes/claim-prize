@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './nav';
 
+
 const login = () => {
   return <>
     <Navbar />
