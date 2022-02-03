@@ -9,7 +9,8 @@ const authorization = async (req, res, next) => {
         return res.status(403).json({ error: "Bad Request !" });
     }
     try {
-        const data = await jwt.verify(token, process.env.SECRET_KEY_JWT);
+        //process.env.SECRET_KEY_JWT
+        const data = await jwt.verify(token,process.env.SECRET_KEY_JWT);
         req.userId = data._id;
         req.token = token;
         return next();
