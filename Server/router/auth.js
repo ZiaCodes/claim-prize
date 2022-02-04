@@ -64,7 +64,7 @@ router.post("/signin", async (req, res) => {
         const userEmail = await Register.findOne({ email: email });
 
         if (userEmail) {
-            console.log(userEmail)
+           
             const isMatch = bcrypt.compareSync(password, userEmail.password);
 
         if(!isMatch){
@@ -79,7 +79,11 @@ router.post("/signin", async (req, res) => {
                 httpOnly: true
             });
             
-            return res.status(200).json({message:"Login Successfully!"});
+            return res.status(200).json({
+                id:userEmail._id,
+                accessToken:token,
+                message:"Login Successfully!"
+            });
         } 
         }else {
             return res.status(422).json({
