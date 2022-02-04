@@ -66,12 +66,21 @@ userSchema.pre("save", async function (next) {
 
     user.forgetPassword.isUsed = false;
     user.forgetPassword.validTill = date;
+
+    
   }
 
-  if (!user.isModified("password")) {
+  if (user.isModified('password')) {
     const hash = bcrypt.hashSync(user.password, 12);
     user.password = hash;
   }
+
+  if (user.isModified('cpassword')) {
+    const chash = bcrypt.hashSync(user.cpassword, 12);
+    user.cpassword = chash;
+  }
+
+  
 
   return next();
 });

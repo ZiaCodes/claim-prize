@@ -34,8 +34,8 @@ router.post("/register", async (req, res) => {
         sendWelcomeEmail(email,name);
 
         //hashing
-        register.password =  bcrypt.hashSync(register.password , 12);
-        register.cpassword = bcrypt.hashSync(register.cpassword , 12);
+        // register.password =  bcrypt.hashSync(register.password , 12);
+        // register.cpassword = bcrypt.hashSync(register.cpassword , 12);
 
        
 
