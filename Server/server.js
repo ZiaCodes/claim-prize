@@ -8,13 +8,14 @@ const cookieParser = require("cookie-parser");
 //schema 
 const form = require('./models/form');
 const register = require('./models/register');
-
+const cors = require("cors");
 const PORT = process.env.PORT || 8080;
 const app = express();
-
-
+//CORS  
+app.use(cors({ credentials: true, origin: true }));
 //Middle ware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(require('./router/auth'));
