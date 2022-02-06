@@ -17,7 +17,8 @@ const login = (email, password) => {
       });
 };
 
-export default{
+const AuthService = {
   login,
-};
+}
+export default AuthService;
 
