@@ -3,7 +3,6 @@ import React, {useState} from "react";
 	
 import logo from '../assets/logo512.png'
 import Navbar from './nav';
-import { Link } from 'react-router-dom';
 import AuthService from "../services/AuthService";
 import Modal from "./modal";
 
