@@ -2,11 +2,11 @@
 
 import React, {useState} from "react";
 import AuthService from "../services/AuthService";
-import { Link,useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 function Modal({setOpenModal}) {
 
     const [email,setEmail] = useState("");
-    const [submitted, setSubmitted] = useState(false);
+    
     let navigate = useNavigate();
     const onEmailChange = (e) => {
         const email = e.target.value;
@@ -20,7 +20,7 @@ function Modal({setOpenModal}) {
         e.preventDefault();
         AuthService.forgetPassword(email).then(
         (response) => { 
-          setSubmitted(true)
+        
           navigate('/resetPassword')
           console.log(response.data)
         },
