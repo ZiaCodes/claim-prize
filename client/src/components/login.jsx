@@ -3,20 +3,20 @@ import React, {useState} from "react";
 	
 import logo from '../assets/logo512.png'
 import Navbar from './nav';
-
+import { Link } from 'react-router-dom';
 import AuthService from "../services/AuthService";
-
+import Modal from "./modal";
 
 const Login = (props) => {
 
-  
-
-  const [email,setUsername] = useState("");
+  const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
+  const [modalOpen,setModalOpen] = useState(false);
 
-  const onUsernameChange = (e) => {
-    const username = e.target.value;
-    setUsername(username);
+
+  const onEmailChange = (e) => {
+    const email = e.target.value;
+    setEmail(email);
   }
 
   const onPasswordChange = (e) => {
@@ -28,8 +28,9 @@ const Login = (props) => {
         
         e.preventDefault();
         AuthService.login(email,password).then(
-        (response) => {  
-          console.log(response.data)
+        (response) => {
+          
+          console.log(email)
         },
         (error) => {
             const resMessage =
@@ -44,7 +45,6 @@ const Login = (props) => {
        
     };
 
-
   return <>
     <Navbar />
     
@@ -54,7 +54,7 @@ const Login = (props) => {
             <img
               className="mx-auto h-12 w-auto"
               src={logo}
-              alt="Claim   Prize"
+              alt="Claim Prize"
             />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Login</h2> 
           </div>
@@ -71,7 +71,7 @@ const Login = (props) => {
                   type="email"
                   autoComplete="email"
                   value={email}
-                  onChange={onUsernameChange}
+                  onChange={onEmailChange}
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email"
@@ -96,15 +96,23 @@ const Login = (props) => {
             </div>
 
             
+ 
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Login
               </button>
             </div>
           </form>
+          <div className="button mt-6 flex items-center">
+              <button type="button" onClick={()=> {
+                setModalOpen(true);
+              }} className="text-sm flex-items-center">Forgot Password</button> 
+
+              {modalOpen && <Modal setOpenModal={setModalOpen} />}
+             </div>
         </div>
       </div>
 
