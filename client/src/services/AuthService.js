@@ -17,8 +17,35 @@ const login = (email, password) => {
       });
 };
 
+const forgetPassword = (email) => {
+  return axios.post("/forgetPassword",{email})
+  .then((response) => {
+    console.log(response.data);
+
+    sessionStorage.setItem("userid",response.data.userId)
+    sessionStorage.setItem("resetToken",response.data.resetToken)
+    return response.data;
+  })
+
+  
+};
+
+const resetPassword = (password,cpassword) => {
+  const userId = sessionStorage.getItem("userid");
+  const resetToken = sessionStorage.getItem("resetToken");
+  console.log(typeof userId)
+  return axios.post(`/resetPassword/${userId}/${resetToken}`,{password,cpassword})
+  .then((response)=> {
+    sessionStorage.clear();
+    console.log(response.data)
+    return response.data;
+  })
+}
+
 const AuthService = {
   login,
+  forgetPassword,
+  resetPassword,
 }
 export default AuthService;
 

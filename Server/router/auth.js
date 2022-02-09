@@ -115,29 +115,35 @@ router.post("/forgetPassword", async (req, res) => {
 
     await user.save();
 
-    const resetLink = `http://localhost:${process.env.PORT}/resetPassword/${user.id}/${resetToken}`;
-
-    return res.send(resetLink);
+   // const resetLink = `http://localhost:${process.env.PORT}/resetPassword/${user.id}/${resetToken}`;
+    return res.status(200).json({
+         userId:user.id,
+         resetToken:resetToken
+    });
+    
 });
 
 // Reset the password
 router.post("/resetPassword/:userId/:resetToken", async (req, res) => {
+    
     const { userId, resetToken } = req.params;
     const { password, cpassword } = req.body;
+    
     const user = await Register.findById(userId);
-
+   
     if (password != cpassword) {
         return res.status(422).json({ error: "Password does not match!" });
     }
 
     //   Checking if user exist
     if (!user) {
-        return res.status(404).json({ Error: "Invalid Token" });
+        return res.status(404).json({ Error: "no user exists" });
     }
 
     //   Match the reset token send by user to the reset token available in database
     if (user.forgetPassword.resetToken !== resetToken) {
-        console.log(resetToken, user.forgetPassword.resetToken);
+        console.log(resetToken);
+        console.log(typeof user.forgetPassword.resetToken);
         return res.status(404).json({ Error: "Invaid Reset Link" });
     }
     const { isUsed, validTill } = user.forgetPassword;
