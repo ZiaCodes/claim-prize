@@ -1,0 +1,122 @@
+.registration{
+    position: relative;
+}
+
+.header{
+    text-align:justify;
+    font: 35px Arial, sans-serif;
+    font-weight: bold;
+    padding: 0;
+    color: #fff;
+    padding-bottom: 20px;
+   
+
+}
+
+.registrationForm{
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.5);
+  border-radius: 10px;
+  
+}
+.registrationImage{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    
+}
+.registrationForm .regFormInput{
+    position: relative;
+}
+.registrationForm .regUFormInput{
+    width: 100%;
+    padding: 7px 0;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    
+}
+.regSignin .btn{
+    background-color: #4CAF50; /* Green */
+    border: 1px solid green;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 10px;
+    
+}
+ul { 
+    padding: 5px;
+ }
+ li {
+    float: left;
+    width: auto;
+    list-style: outside none none;
+    margin-right: 10px;
+ }
+
+.regSignin .btn:hover{
+    background-color: #3e8e41;
+}
+
+.log{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 10px;
+}
+.log:hover{
+    background-color: #fff;
+    color: black;
+    text-decoration: underline black ;
+}
+
+.or{
+    padding-top: 6px;
+    color: #fff;
+}
+
+
+@media screen and (min-width: 368px) and (max-width: 992px) {
+    .registrationForm {
+        padding: 1rem 4rem;
+        margin: 5%;
+        margin-left: 0;
+        align-items: center;
+        width: 70%;
+    }
+    
+    
+}
+
+@media screen and (min-width: 1000px) and (max-width:1500px){
+    
+   
+    .registrationForm {
+        padding: 1rem 4rem;
+        margin: 5%;
+        margin-left: 0;
+        margin-left: 50px;
+        width: 60%;
+        
+    }
+    
+}
