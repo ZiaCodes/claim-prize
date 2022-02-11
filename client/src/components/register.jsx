@@ -5,8 +5,8 @@ import Navbar from './nav';
 
 
 const register = () => {
-  return (
-    <><Navbar /><div className="registration">
+  return <>
+  <Navbar /><div className="registration">
         <img src={registration_img} alt="registration"  className="registrationImage" />
       
       <div className="registrationForm">
@@ -38,7 +38,7 @@ const register = () => {
     </div>
     
     </>
-  );
+  
 };
 
 export default register;
