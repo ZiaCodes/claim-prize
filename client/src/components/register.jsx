@@ -37,7 +37,7 @@ const register = () => {
       </div>
     </div>
     
-    </>
+    </>;
   
 };
 
