@@ -42,10 +42,19 @@ const resetPassword = (password,cpassword) => {
   })
 }
 
+const register = (data)=>{
+  return axios.post('/register', data).then((data)=>{
+    console.log(data);
+  }).catch((e)=>{
+    console.log(e.message)
+  })
+}
+
 const AuthService = {
   login,
   forgetPassword,
   resetPassword,
+  register
 }
 export default AuthService;
 
