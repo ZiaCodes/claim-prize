@@ -1,122 +1,100 @@
-
-import React, {useState} from "react";
-	
-import logo from '../assets/logo512.png'
-import Navbar from './nav';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
-import Modal from "./modal";
+import "./login.css";
 
 const Login = (props) => {
-
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
-  const [modalOpen,setModalOpen] = useState(false);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const onEmailChange = (e) => {
     const email = e.target.value;
     setEmail(email);
-  }
+  };
 
   const onPasswordChange = (e) => {
-      const password = e.target.value;
-      setPassword(password);
-  }
+    const password = e.target.value;
+    setPassword(password);
+  };
 
   const postLogin = (e) => {
-        
-        e.preventDefault();
-        AuthService.login(email,password).then(
-        (response) => {
-          
-          console.log(email)
-        },
-        (error) => {
-            const resMessage =
-              (error.response &&
-                error.response.data &&
-                error.response.data.message) ||
-              error.message ||
-              error.toString();
+    e.preventDefault();
+    AuthService.login(email, password).then(
+      (response) => {
+        console.log(email);
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-              console.log(resMessage);
-        });
-       
-    };
+        console.log(resMessage);
+      }
+    );
+  };
 
-  return <>
-    <Navbar />
-    
-    <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
-          <div>
-            <img
-              className="mx-auto h-12 w-auto"
-              src={logo}
-              alt="Claim Prize"
+  return (
+    <>
+      <div>
+        <div className="bg">
+          <div className="bg-small"></div>
+          <div className="bg-large"></div>
+        </div>
+        <div className="login-nav">
+          <h1>CLAIM SWAG</h1>
+          <Link class="link" to="/">
+            Register
+          </Link>
+          <Link class="link" to="/login">
+            Login
+          </Link>
+          <Link class="link" to="/about">
+            About
+          </Link>
+          <Link class="link" to="/">
+            Home
+          </Link>
+        </div>
+
+        <div className="main-login">
+          <h1>LOGIN</h1>
+          <form onSubmit={postLogin}>
+            <input
+              id="email"
+              name="email"
+              value={email}
+              autoComplete="email"
+              onChange={onEmailChange}
+              type="email"
+              required
+              placeholder="Your email or phone"
             />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Login</h2> 
-          </div>
-          <form className="mt-8 space-y-6" onSubmit={postLogin} >
-            <input type="hidden" name="remember" defaultValue="true" />
-            <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="email" className="sr-only">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={onEmailChange}
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Email"
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  value={password}
-                  onChange={onPasswordChange}
-                  autoComplete="current-password"
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-
-            
- 
-            <div>
-              <button
-                type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Login
-              </button>
-            </div>
+            <br />
+            <input
+              id="password"
+              name="password"
+              value={password}
+              onChange={onPasswordChange}
+              type="password"
+              required
+              placeholder="Your Password"
+            />
+            <br />
+            <button>
+              <h3>Login</h3>
+            </button>
+            <p>or</p>
+            <Link class="link" to="/Register">
+              Create a Account
+            </Link>
           </form>
-          <div className="button mt-6 flex items-center">
-              <button type="button" onClick={()=> {
-                setModalOpen(true);
-              }} className="text-sm flex-items-center">Forgot Password</button> 
-
-              {modalOpen && <Modal setOpenModal={setModalOpen} />}
-             </div>
         </div>
       </div>
-
-
-    </>;
+    </>
+  );
 };
 
 export default Login;

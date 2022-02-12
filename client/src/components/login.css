@@ -1,0 +1,112 @@
+.login-nav {
+  margin: 20px 20px;
+  padding-right: 50px;
+}
+
+.login-nav h1 {
+  display: inline;
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.login-nav .link {
+  color: black;
+  float: right;
+  font-size: 30px;
+  font-weight: 700;
+  padding-left: 50px;
+  text-decoration: none;
+}
+
+.login-nav .link:hover {
+  color: gray;
+}
+
+.bg {
+  /* overflow-x: hidden; */
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg-small {
+  z-index: -1;
+  position: absolute;
+  height: 15rem;
+  width: 15rem;
+  top: 15%;
+  left: 60%;
+  border-radius: 100%;
+  background-color: #f39c12;
+}
+
+.bg-large {
+  z-index: -1;
+  position: absolute;
+  height: 58.5rem;
+  width: 58.5rem;
+  left: 75%;
+  border-radius: 100%;
+  background-color: #f39c12;
+}
+
+.main-login {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+}
+
+.main-login h1 {
+  font-weight: 900;
+  font-size: 50px;
+  margin-bottom: 20%;
+}
+
+.main-login input {
+  border: none;
+  width: 27rem;
+  height: 40px;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  border-bottom: 3px solid black;
+}
+
+.main-login input:focus {
+  outline: none !important;
+}
+
+.main-login ::placeholder {
+  letter-spacing: 1px;
+  font-weight: 1px;
+}
+.main-login button {
+  width: 10rem;
+  height: 3.25rem;
+  margin-top: 10%;
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: 1px;
+  color: #fff;
+  display: inline;
+  border: none;
+  border-radius: 28px;
+  background-color: #f39c12;
+}
+
+.main-login button h3 {
+  display: inline;
+}
+
+.main-login p {
+  margin-top: 10%;
+  margin-left: 2.5%;
+  font-size: 25px;
+  display: inline;
+}
+
+.main-login a {
+  margin-left: 2.5%;
+  font-size: 30px;
+  font-weight: 500px;
+  color: #d6d61e;
+}
