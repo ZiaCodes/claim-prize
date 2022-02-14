@@ -120,3 +120,17 @@ ul {
     }
     
 }
+
+/* About Us page */
+
+.user-details{
+    color:whitesmoke;
+    font-size: 1.2rem;
+    font-weight: 480;
+    line-height: 2rem;
+    display: flex;
+    align-items: center;
+}
+.user-details>i{
+    margin-right: 1rem;
+}
