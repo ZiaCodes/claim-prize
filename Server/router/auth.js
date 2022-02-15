@@ -106,7 +106,7 @@ router.post("/forgetPassword", async (req, res) => {
     const user = await Register.findOne({ email });
 
     if (!user) {
-        return res.sendStatus(404).json({ Error: "User is not in out database" });
+        return res.status(404).json({ Error: "User is not in out database" });
     }
 
     let resetToken = generateResetToken();
