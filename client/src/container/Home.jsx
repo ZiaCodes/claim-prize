@@ -1,6 +1,8 @@
 import React from "react";
 import NavBar from "../components/nav";
-import SuperHero from "../assets/home-superhero.svg";
+import MobileScreen from "../assets/landing-page.png";
+import Circle from "../assets/Ellipse.png";
+import SemiCircle from "../assets/SemiEllipse.png";
 import { Link } from "react-router-dom";
 import "../styles/home.css";
 
@@ -11,8 +13,8 @@ const Home = () => {
       <div className="home-box mt-12 mx-16">
         
         <div className="flex justify-between items-center mt-12 mx-16">
-          <div>
-            <p className="text-4xl font-semibold">India's <span style={{color:"#FCAF03"}}>First</span></p>
+          <div className="mobile-txt">
+            <span className="text-4xl font-semibold">India's <span style={{color:"#FCAF03"}}>First</span></span>
             <p className="text-7xl font-bold mb-2">EARNING</p>
             <p className="text-7xl font-bold mb-2">REWARD</p>
             <p className="text-7xl font-bold mb-6">APPLICATION</p>
@@ -22,13 +24,24 @@ const Home = () => {
               </button>
             </Link>          
           </div>
-          <div>
+          <div className="hide-on-mobile flex landing-div">            
+            <img 
+              src={Circle}
+              alt="Yellow Circle"
+              className="circle mr-20"
+              />
             <img
-              src={SuperHero}
+              src={MobileScreen}
               alt="Superhero with rewards"
-              className="w-auto h-[36rem]"
+              className="w-auto mobile-screen"
             />
           </div>
+          
+          <img 
+             src={SemiCircle}
+             alt="Semi Yellow Circle"
+             className="semi-circle hide-on-mobile"
+            />
         </div>
 
         <div className="mb-4">

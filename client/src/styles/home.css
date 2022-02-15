@@ -31,3 +31,47 @@
     border: 2px solid #FCAF03;
     color:black;
 }
+
+.mobile-screen{
+    height: 60vh;
+}
+
+.circle{
+    width:25vh;
+    height: 25vh;
+}
+
+.semi-circle{
+    position: absolute;
+    top:0;
+    height: 100vh;
+    right:0;
+    z-index:-1;
+}
+
+.landing-div{
+    width:50%
+}
+
+/* hides the component on mobile */
+@media only screen and (max-width: 600px)   {
+    .hide-on-mobile{
+        display: none!important;    
+    }
+
+    .home-box{
+        margin: 0 !important;
+    }
+
+    .mobile-txt>p{
+        font-size: 2.5rem;
+    }
+
+    .mobile-txt>span{
+        font-size: 2.2rem;
+    }
+    .sign-up{
+        padding: 1rem 2rem!important;
+        font-size: 1.5rem!important;
+    }
+}
