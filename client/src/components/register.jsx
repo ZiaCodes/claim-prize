@@ -1,10 +1,11 @@
-import React from 'react';
+import React ,{ useRef } from 'react';
 import "../styles/register.css";
 import registration_img from "../assets/registration_img.png";
 import Navbar from './nav';
+import AuthService from '../services/AuthService';
 
 
-const register = () => {
+const Register = () => {
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -49,7 +50,7 @@ const register = () => {
         <ul className="regSignin">
           <li><button className="btn" onClick={registerUser} >Sign In</button></li>
           <li><h4 className="or">or</h4></li>
-          <li><button className="btn" className="log">login here</button></li>
+          <li><button className="btn log">login here</button></li>
         </ul>
       </div>
     </div>
@@ -58,4 +59,4 @@ const register = () => {
   
 };
 
-export default register;
+export default Register;
