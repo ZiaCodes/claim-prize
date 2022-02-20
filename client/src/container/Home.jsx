@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/nav";
 
 import SemiCircle from "../assets/SemiEllipse.png";
+import mobileMockup from "../assets/landing-page.png";
 import { Link } from "react-router-dom";
 import "../styles/home.css";
 
@@ -55,24 +56,8 @@ const Home = () => {
         </div>
 
         <div className="mb-4">
-          {/* Social Media Icons */}
           <div className="mt-4 flex space-x-2">
-
-              <a className="social-icons" href={() => false}>
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-
-              <a className="social-icons" href={() => false}>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-
-              <a className="social-icons" href={() => false}>
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-
-              <a className="social-icons" href="https://github.com/ZiaCodes/claim-prize">
-                <i class="fa fa-github" aria-hidden="true"></i>
-              </a>
+            <img className=" mr-60 w-60 " src={mobileMockup} alt="img"/>
           </div>
         </div>
 

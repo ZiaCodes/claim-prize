@@ -15,13 +15,10 @@ const nav = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="font-bold px-5 my-6 text-xl hover:text-gray-500 cursor-pointer">
-            <Link to="/about">About</Link>
+            <Link to="/about">My Account</Link>
           </li>
           <li className="font-bold px-5 my-6 text-xl hover:text-gray-500 cursor-pointer">
-            <Link to="/login">Login</Link>
-          </li>
-          <li className="font-bold px-5 my-6 text-xl hover:text-gray-500 cursor-pointer">
-            <Link to="/register">Register</Link>
+            <Link to="/register">Sign In</Link>
           </li>
         </ul>
       </div>

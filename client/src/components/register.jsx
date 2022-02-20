@@ -3,6 +3,7 @@ import "../styles/register.css";
 import registration_img from "../assets/registration_img.png";
 import Navbar from './nav';
 import AuthService from '../services/AuthService';
+import { Link } from "react-router-dom";
 
 
 const Register = () => {
@@ -48,9 +49,11 @@ const Register = () => {
         </div>
    
         <ul className="regSignin">
-          <li><button className="btn" onClick={registerUser} >Sign In</button></li>
+          <li><button className="btn" onClick={registerUser} >Register</button></li>
           <li><h4 className="or">or</h4></li>
-          <li><button className="btn log">login here</button></li>
+          <li><button className='btn'>
+          <Link to="/login">Login </Link>
+          </button></li>
         </ul>
       </div>
     </div>
