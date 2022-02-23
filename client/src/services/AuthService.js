@@ -10,8 +10,7 @@ const login = (email, password) => {
         if (response.data.accessToken) {
           console.log(response.data.accessToken)
           //Session Saving
-          SessionService.setSession(response.data);
-          
+          SessionService.setSession(response.data);          
         }
         return response.data;
       });

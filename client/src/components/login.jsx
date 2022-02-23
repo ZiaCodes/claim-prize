@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo512.png'
 import Navbar from './nav';
 import AuthService from "../services/AuthService";
@@ -6,6 +7,7 @@ import Modal from "./modal";
 
 const Login = (props) => {
 
+  const navigate = useNavigate();
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const [modalOpen,setModalOpen] = useState(false);
@@ -27,7 +29,9 @@ const Login = (props) => {
         AuthService.login(email,password).then(
         (response) => {
           
-          console.log(email)
+          console.log(response);
+          alert("Logged in successfully!");
+          navigate('/about');
         },
         (error) => {
             const resMessage =
