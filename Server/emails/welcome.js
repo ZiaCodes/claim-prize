@@ -28,4 +28,3 @@ mailTransporter.sendMail(mailDetails, function(err, data) {
 module.exports = {
     sendWelcomeEmail
 }
-

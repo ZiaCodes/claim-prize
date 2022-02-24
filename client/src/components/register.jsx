@@ -1,4 +1,5 @@
 import React ,{ useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "../styles/register.css";
 import registration_img from "../assets/registration_img.png";
 import Navbar from './nav';
@@ -7,7 +8,8 @@ import { Link } from "react-router-dom";
 
 
 const Register = () => {
-
+  
+  const navigate = useNavigate();
   const nameRef = useRef();
   const emailRef = useRef();
   const phoneNumberRef= useRef();
@@ -22,7 +24,11 @@ const Register = () => {
       password : passwordRef.current.value,
       cpassword : cpasswordRef.current.value}
 
+      // console.log('[data]', data);
+      
       AuthService.register(data);
+      alert("Registration Successful!! Log in to continue...");
+      navigate('/login');
   }
   return <>
   <Navbar /><div className="registration">
